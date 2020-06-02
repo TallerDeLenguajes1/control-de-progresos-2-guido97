@@ -11,6 +11,8 @@ namespace JuegoDeRol
             Personaje pers1 = new Personaje("Bart Simpson", "ElBarto",(int) TipoPersonaje.NiñoRata);
             pers1.rellenarAleatorio();
 
+            pers1.MostrarDatos();
+
             Application.Init();
             MainWindow win = new MainWindow();
             win.Show();
