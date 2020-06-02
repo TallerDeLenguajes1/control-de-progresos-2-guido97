@@ -19,15 +19,17 @@ namespace JuegoDeRol
             int Edad; //entre 0 a 300
             int Salud;//100
 
+            Random generadorAleatorio = new Random();
+            Velocidad = generadorAleatorio.Next((int)Maximos.VelocidadMax);
 
         }
     }
     enum Maximos
     {
-        Velocidad =10,
-        Destreza =5,
-        Fuerza =10,
-        Nivel =10,
-        Armadura=10
+        VelocidadMax =10,
+        DestrezaMax = 5,
+        FuerzaMax = 10,
+        NivelMax = 10,
+        ArmaduraMax = 10
     }
 }
