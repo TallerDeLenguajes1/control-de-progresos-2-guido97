@@ -40,9 +40,11 @@ namespace JuegoDeRol
         }
         public void MostrarDatos()
         {
+            String[] tipos = { "Enano", "Elfo", "Mago", "Guerro", "Arquero", "NiñoRata" };
             Console.WriteLine($"Velocidad={Velocidad}, Destreza={Destreza}, Fuerza={Fuerza}, " +
-            	$"Nivel={Nivel}, Armadura={Armadura}, Tipo={Tipo}, Nombre={Nombre}, Apodo={Apodo}" +
+            	$"Nivel={Nivel}, Armadura={Armadura}, Tipo={tipos[Tipo-1]}, Nombre={Nombre}, Apodo={Apodo}" +
                 $", FechaDeNacimiento={FechaDeNacimiento}, Edad={GetEdad()}, Salud={Salud}");
+
         }
 
         private int GetEdad()
