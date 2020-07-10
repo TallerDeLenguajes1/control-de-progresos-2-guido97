@@ -19,20 +19,20 @@ namespace JuegoDeRol
 
         int Armadura;
         int Tipo;
-        string Nombre;
-        string Apodo;
+        public string Nombre;
+        public string Apodo;
         DateTime FechaDeNacimiento;
         int Edad; //entre 0 a 300
-        int Salud;//100
+        public int Salud;//100
 
         public void rellenarAleatorio()
         {
             Random generadorAleatorio = new Random();
-            Velocidad = generadorAleatorio.Next((int)Maximos.VelocidadMax);
-            Destreza = generadorAleatorio.Next((int)Maximos.DestrezaMax);
-            Fuerza = generadorAleatorio.Next((int)Maximos.FuerzaMax);
-            Nivel = generadorAleatorio.Next((int)Maximos.NivelMax);
-            Armadura = generadorAleatorio.Next((int)Maximos.ArmaduraMax);
+            Velocidad = generadorAleatorio.Next(1,(int)Maximos.VelocidadMax);
+            Destreza = generadorAleatorio.Next(1, (int)Maximos.DestrezaMax);
+            Fuerza = generadorAleatorio.Next(1, (int)Maximos.FuerzaMax);
+            Nivel = generadorAleatorio.Next(1, (int)Maximos.NivelMax);
+            Armadura = generadorAleatorio.Next(1, (int)Maximos.ArmaduraMax);
             int anio = generadorAleatorio.Next(DateTime.Now.Year - (int) Maximos.EdadMax, DateTime.Now.Year);
             int mes = generadorAleatorio.Next(12)+1;
             int dia = 1;
@@ -55,6 +55,25 @@ namespace JuegoDeRol
             return aux;
         }
 
+        public void Atacar(Personaje personaje2)
+        {
+            int MDP = 50000;
+
+            int PD =Destreza*Fuerza*Nivel;
+            int ED = new Random().Next(1,100);
+            int VA = PD * ED;
+
+            int PDEF = personaje2.Armadura * personaje2.Velocidad;
+
+            int dañoProvocado= (((VA * ED) - PDEF) / MDP)*100;
+
+            if (dañoProvocado > MDP)
+            {
+                dañoProvocado = MDP;
+            }
+            personaje2.Salud -= dañoProvocado;
+            Console.WriteLine("Daño provocado por {0}: {1}", Apodo, dañoProvocado);
+        }
     }
     enum Maximos
     {
